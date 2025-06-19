@@ -35,28 +35,17 @@ auth-system/
 ## 🛠️ Requirements
 
 - PHP 7+
-- MySQL or MariaDB
-- Web Server (Apache via XAMPP, Laragon, etc.)
-- A browser (Chrome/Firefox)
-- Code editor (VS Code recommended)
+- MySQL
+- Web Server XAMPP
+- A browser
+- Code editor
 
----
-
-## 🧰 Setup Instructions
-
-### 1. Install Local Server
-
-Download and install [XAMPP](https://www.apachefriends.org/) or [Laragon](https://laragon.org/).
-
-Start Apache and MySQL from the control panel.
-
----
 
 ### 2. Clone or Download
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/auth-system.git
+git clone https://github.com/Sydulamin Authentication-System-using-Raw-PHP-and-Tailwind-CSS.git
 ```
 
 Place it inside your XAMPP `htdocs` folder:
@@ -83,58 +72,8 @@ CREATE TABLE users (
 );
 ```
 
----
 
-### 4. Configure Database (`db.php`)
-
-```php
-<?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "auth_db";
-
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
 ```
-
----
-
-## 🌐 Usage
-
-- Go to: [http://localhost/auth-system/register.php](http://localhost/auth-system/register.php) → Register a user
-- Login via: `login.php`
-- You’ll be redirected to a protected `dashboard.php`
-- Click logout to end the session
-
----
-
-## 📸 Screenshots
-
-| Page         | Preview                        |
-|--------------|---------------------------------|
-| Register     | ![Register](screens/register.png) |
-| Login        | ![Login](screens/login.png)     |
-| Dashboard    | ![Dashboard](screens/dashboard.png) |
-
-*(Add screenshots in a `screens/` folder for GitHub)*
-
----
-
-## 🧠 Author Note
-
-This project is built for **educational purposes** to understand the basics of authentication using pure PHP and MySQL. It's not suitable for production without proper security measures like:
-
-- Input validation/sanitization
-- CSRF protection
-- SQL prepared statements
-- HTTPS and secure session handling
-
----
 
 ## 📄 License
 
