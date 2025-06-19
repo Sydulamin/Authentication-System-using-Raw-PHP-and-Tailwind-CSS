@@ -17,22 +17,21 @@
       <button type="submit" name="register" class="w-full bg-blue-500 text-white p-2 rounded">Register</button>
     </form>
     <p class="mt-3">Already have an account? <a href="login.php" class="text-blue-600">Login</a></p>
-  </div>
 
-<?php 
-    if (isset($_POST['register'])){
-        $name = $POST['name'];
+    <?php
+    if (isset($_POST['register'])) {
+        $name = $_POST['name'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        
-        $sql = "INSERT INTO users (name, email, password) Values ('$name', '$email', '$password')";
-        
-        if ($conn->query($sql)) {
-            echo "<p class='text-green-500 mt-4'>Registration successful!</p>";
-        } else {
-            echo "<p class='text-red-500 mt-4'>Error: " . $conn->error . "</p>";
-    }
-?>
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+        $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+        if ($conn->query($sql)) {
+            echo "<p class='text-green-600 mt-3'>Registration successful!</p>";
+        } else {
+            echo "<p class='text-red-600 mt-3'>Error: " . $conn->error . "</p>";
+        }
+    }
+    ?>
+  </div>
 </body>
 </html>
